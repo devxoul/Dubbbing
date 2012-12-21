@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface AudioInfo : NSObject
+@property (strong, nonatomic) NSURL* audioURL;
+@property (nonatomic) CMTime audioStartTime;
+
+
+-(id) initWithAudioURL:(NSURL*)url startTime:(CMTime)startTime;
 
 @end

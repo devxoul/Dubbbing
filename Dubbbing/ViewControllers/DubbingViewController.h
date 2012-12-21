@@ -8,15 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <CoreMedia/CoreMedia.h>
+#import "AudioRecorder.h"
 
-@interface MoviePlayerViewController : UIViewController
+@interface DubbingViewController : UIViewController
 {
 	NSURL *_url;
 	
 	MPMoviePlayerController *_player;
 	UIButton *_recordButton;
+    UIButton *_mixButton;
+    
+    AudioRecorder* _audioRecorder;    
+    
+    // Player
+    AVPlayer* _avPlayer;
+    BOOL    _isRecording;
+
+    
 }
 
 - (id)initWithURL:(NSURL *)url;
+
 
 @end

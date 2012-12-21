@@ -9,5 +9,19 @@
 #import "AudioInfo.h"
 
 @implementation AudioInfo
+@synthesize audioURL;
+@synthesize audioStartTime;
+
+-(id) initWithAudioURL:(NSURL*)url startTime:(CMTime)startTime
+{
+    self = [super init];
+    if( self )
+    {
+        audioURL = [url retain];
+        audioStartTime = startTime;
+    }
+    
+    return self;
+}
 
 @end

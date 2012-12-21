@@ -15,5 +15,6 @@
 @property (strong, nonatomic) UIButton* playButton;
 @property (strong, nonatomic) UIButton* recordButton;
 @property (strong, nonatomic) UIButton* stopButton;
+@property (strong, nonatomic) UIButton* testButton;
 
 @end

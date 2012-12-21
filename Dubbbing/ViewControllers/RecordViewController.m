@@ -17,6 +17,7 @@
 @synthesize playButton;
 @synthesize recordButton;
 @synthesize stopButton;
+@synthesize testButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +51,13 @@
     [stopButton addTarget:self action:@selector(stop) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:stopButton];
     
+    testButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [testButton setFrame:CGRectMake(20.f, 170.f, 200.f, 30.f)];
+    [testButton setTitle:@"Test" forState:UIControlStateNormal];
+    [testButton addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:testButton];
+
+    
     audioRecorder = [[AudioRecorder alloc] init];
     
 }
@@ -65,8 +73,9 @@
 {
     playButton.enabled = NO;
     stopButton.enabled = YES;
-    [self.audioRecorder recordAudio];
+    [self.audioRecorder recordAudioWithStartTime:CMTimeMakeWithSeconds(0, 10000)];
 }
+
 -(void)stop
 {
     stopButton.enabled = NO;
@@ -75,12 +84,14 @@
     
     [self.audioRecorder stop];
 }
--(void) playAudio
+
+-(void)test
 {
-    stopButton.enabled = YES;
-    recordButton.enabled = NO;
-    [self.audioRecorder playAudio];
+    AVMutableComposition* composition = [[AVMutableComposition alloc] init];
+    
+//    composition
 }
+
 
 //-(void)audioPlayerDidFinishPlaying:
 //(AVAudioPlayer *)player successfully:(BOOL)flag

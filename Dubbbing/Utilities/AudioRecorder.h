@@ -9,16 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+
+
 @interface AudioRecorder : NSObject <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
-@property (strong, nonatomic) AVAudioRecorder* audioRecorder;
-@property (strong, nonatomic) AVAudioPlayer* audioPlayer;
+@property (strong, nonatomic) NSMutableArray* audioRecorderList;
+@property (strong, nonatomic) NSMutableArray* audioInfoList;
 
 
--(void) recordAudio;
+
+-(void) recordAudioWithStartTime:(CMTime)startTime;
 -(void) stop;
--(void) playAudio;
--(NSURL*) getRecordedAudioURL;
+
 
 @end
 

@@ -36,8 +36,8 @@
 
 - (void)postButtonHandler
 {
-//	[self presentActionSheet];
-	[self presentPostViewControllerWithURL:nil];
+	[self presentActionSheet];
+//	[self presentPostViewControllerWithURL:nil];
 }
 
 

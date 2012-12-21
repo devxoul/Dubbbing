@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import "AudioInfo.h"
 
 @interface AudioVideoMixer : NSObject
+
+@property (nonatomic, strong) AVMutableComposition* composition;
+
+
+-(void) mixVideoURL:(NSURL*)videoURL audioInfoList:(NSMutableArray*)audioInfoList;
 
 @end

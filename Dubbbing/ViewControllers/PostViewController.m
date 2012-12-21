@@ -9,7 +9,7 @@
 #import "PostViewController.h"
 #import "Utils.h"
 #import <QuartzCore/CALayer.h>
-#import "MoviePlayerViewController.h"
+#import "DubbingViewController.h"
 
 @implementation PostViewController
 
@@ -181,7 +181,7 @@ enum {
 
 - (void)movieButtonDidTouchUpInside
 {
-	MoviePlayerViewController *moviePlayerViewController = [[MoviePlayerViewController alloc] initWithURL:_url];
+	DubbingViewController *moviePlayerViewController = [[DubbingViewController alloc] initWithURL:_url];
 	[self presentViewController:moviePlayerViewController animated:YES completion:nil];
 	[moviePlayerViewController release];
 }
