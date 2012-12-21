@@ -10,6 +10,8 @@
 #import "Utils.h"
 #import <QuartzCore/CALayer.h>
 #import "DubbingViewController.h"
+#import "RecordViewController.h"
+#import "DubbbingBarButtonItem.h"
 
 @implementation PostViewController
 
@@ -29,11 +31,13 @@ enum {
 	
 	_url = [url retain];
 	
-	UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString( @"CANCEL", @"취소" ) style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonHandler)];
+	DubbbingBarButtonItem *cancelButton = [[DubbbingBarButtonItem alloc] initWithType:DubbbingBarButtonItemTypeNormal title:NSLocalizedString( @"CANCEL", @"취소" ) target:self action:@selector(cancelButtonHandler)];
 	self.navigationItem.leftBarButtonItem = cancelButton;
 	[cancelButton release];
 	
-	UIBarButtonItem *postButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString( @"UPLOAD", @"등록" ) style:UIBarButtonItemStyleDone target:self action:@selector(postButtonHandler)];
+	self.navigationItem.title = NSLocalizedString( @"POSTING", @"포스팅" );
+	
+	DubbbingBarButtonItem *postButton = [[DubbbingBarButtonItem alloc] initWithType:DubbbingBarButtonItemTypeNormal title:NSLocalizedString( @"UPLOAD", @"등록" ) target:self action:@selector(postButtonHandler)];
 	self.navigationItem.rightBarButtonItem = postButton;
 	[postButton release];
 	

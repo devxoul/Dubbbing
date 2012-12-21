@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "DubbbingNavigationController.h"
 #import "ListViewController.h"
-#import "RecordViewController.h"
 
 @implementation AppDelegate
 
@@ -22,9 +22,7 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     self.window.backgroundColor = [UIColor whiteColor];
-    // for Test
-//    [self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[[RecordViewController alloc] init] autorelease]] autorelease];
-	self.window.rootViewController = [[[UINavigationController alloc] initWithRootViewController:[[[ListViewController alloc] init] autorelease]] autorelease];
+	self.window.rootViewController = [[[DubbbingNavigationController alloc] initWithRootViewController:[[[ListViewController alloc] init] autorelease]] autorelease];
     [self.window makeKeyAndVisible];
 	
     return YES;

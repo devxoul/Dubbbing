@@ -13,6 +13,10 @@
 @interface PostCell : UITableViewCell
 {
 	Post *_post;
+	
+	UIButton *_thumbnailButton;
+	UILabel *_titleLabel;
+	UILabel *_dateLabel;
 }
 
 @property (nonatomic, retain) Post *post;

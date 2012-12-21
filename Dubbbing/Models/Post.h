@@ -12,15 +12,17 @@
 {
 	NSString *thumbnailURL;
 	NSString *videoURL;
-	NSString *description;
 	
 	UIImage *thumbnail;
+	NSString *title;
 }
+
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) UIImage *thumbnail;
 
 @property (nonatomic, retain) NSString *thumbnailURL;
 @property (nonatomic, retain) NSString *videoURL;
-@property (nonatomic, retain) NSString *description;
 
-@property (nonatomic, retain) UIImage *thumbnail;
++ (Post *)postFromDictionary:(NSDictionary *)dictionary;
 
 @end

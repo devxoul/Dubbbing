@@ -14,6 +14,8 @@
 	UITableView *_tableView;
 	
 	NSMutableArray *_posts;
+	
+	JLHTTPLoader *_loader;
 }
 
 @end
