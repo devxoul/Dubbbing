@@ -13,8 +13,13 @@
 
 
 // List View
-"SUBMIT" = "등록";
 "RECORD_A_VIDEO" = "동영상 촬영";
 "FROM_LIBRARY" = "라이브러리에서 선택";
-"CANCEL" = "취소";
 "NO_SUPPORT_CAMERA" = "카메라를 지원하지 않는 기기입니다.";
+
+
+// Post View
+"UPLOAD" = "등록";
+"CANCEL" = "취소";
+"TITLE" = "제목";
+"DESCRIPTION" = "설명";

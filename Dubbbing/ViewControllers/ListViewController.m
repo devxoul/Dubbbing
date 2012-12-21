@@ -25,7 +25,6 @@
 	_tableView = [[UITableView alloc] initWithFrame:CGRectMake( 0, 0, 320, [Utils screenHeight] - 64 ) style:UITableViewStylePlain];
 	_tableView.delegate = self;
 	_tableView.dataSource = self;
-	_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	[self.view addSubview:_tableView];
 	
 	return self;
@@ -69,7 +68,7 @@
 			return;
 		}
 		
-		pickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+		pickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
 	}
 	
 	// Library
@@ -92,15 +91,24 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	[self dismissViewControllerAnimated:YES completion:nil];
-	
-	NSLog( @"Album : %@", info );
-	UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	NSLog( @"From library : %@", info );
+	NSString *moviePath = [info objectForKey:UIImagePickerControllerMediaURL];
 	
 	// 카메라로 찍은 경우 앨범에 저장
-	if( picker.sourceType == UIImagePickerControllerSourceTypeCamera )
-		UIImageWriteToSavedPhotosAlbum( image, nil, nil, nil );
+//	if( picker.sourceType == UIImagePickerControllerSourceTypeCamera )
+//		UIImageWriteToSavedPhotosAlbum( image, nil, nil, nil );
 	
+	
+	[self performSelector:@selector(presentPostViewController) withObject:nil afterDelay:0.5];
+}
+
+- (void)presentPostViewController
+{
+	[self dismissViewControllerAnimated:NO completion:nil];
+	
+	UINavigationController *postViewController = [[UINavigationController alloc] initWithRootViewController:[[[PostViewController alloc] init] autorelease]];
+	[self presentViewController:postViewController animated:NO completion:nil];
+	[postViewController release];
 }
 
 

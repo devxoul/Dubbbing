@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PostViewController : UIViewController
+@interface PostViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+{
+	UITableView *_tableView;
+	
+	UIButton *_movieButton;
+	UITextField *_titleInput;
+	UITextField *_descriptionInput;
+}
 
 @end
