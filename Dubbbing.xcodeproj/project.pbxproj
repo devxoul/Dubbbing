@@ -41,6 +41,9 @@
 		03B43A981684A3AE00C58667 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B43A8B1684A3AE00C58667 /* SBJsonUTF8Stream.m */; };
 		03B43A991684A3AE00C58667 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B43A8D1684A3AE00C58667 /* SBJsonWriter.m */; };
 		03B43A9A1684A41800C58667 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0337FBCB16849FDA007C5E07 /* Utils.m */; };
+		94E345831684AC4300D7E8E8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E345821684AC4300D7E8E8 /* AVFoundation.framework */; };
+		94E3458B1684BF4B00D7E8E8 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3458A1684BF4B00D7E8E8 /* RecordViewController.m */; };
+		94E345931684C8A600D7E8E8 /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E345921684C8A600D7E8E8 /* AudioRecorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +112,11 @@
 		03B43A8B1684A3AE00C58667 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		03B43A8C1684A3AE00C58667 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		03B43A8D1684A3AE00C58667 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		94E345821684AC4300D7E8E8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		94E345891684BF4B00D7E8E8 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = ViewControllers/RecordViewController.h; sourceTree = "<group>"; };
+		94E3458A1684BF4B00D7E8E8 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = ViewControllers/RecordViewController.m; sourceTree = "<group>"; };
+		94E345911684C8A600D7E8E8 /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = Utilities/AudioRecorder.h; sourceTree = "<group>"; };
+		94E345921684C8A600D7E8E8 /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = Utilities/AudioRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E345831684AC4300D7E8E8 /* AVFoundation.framework in Frameworks */,
 				03B1F2CD1684A7F900C32ED4 /* MobileCoreServices.framework in Frameworks */,
 				0337FBAA16849F33007C5E07 /* UIKit.framework in Frameworks */,
 				0337FBAC16849F33007C5E07 /* Foundation.framework in Frameworks */,
@@ -147,6 +156,7 @@
 		0337FBA816849F33007C5E07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94E345821684AC4300D7E8E8 /* AVFoundation.framework */,
 				03B1F2CB1684A7ED00C32ED4 /* MobileCoreServices.framework */,
 				0337FBA916849F33007C5E07 /* UIKit.framework */,
 				0337FBAB16849F33007C5E07 /* Foundation.framework */,
@@ -158,6 +168,7 @@
 		0337FBAF16849F33007C5E07 /* Dubbbing */ = {
 			isa = PBXGroup;
 			children = (
+				94E345901684C81500D7E8E8 /* Utilities */,
 				0337FBB816849F33007C5E07 /* AppDelegate.h */,
 				0337FBB916849F33007C5E07 /* AppDelegate.m */,
 				0337FBCA16849FDA007C5E07 /* Utils.h */,
@@ -192,6 +203,8 @@
 				0337FBC716849F80007C5E07 /* ListViewController.m */,
 				0337FBE61684A0C7007C5E07 /* PostViewController.h */,
 				0337FBE71684A0C7007C5E07 /* PostViewController.m */,
+				94E345891684BF4B00D7E8E8 /* RecordViewController.h */,
+				94E3458A1684BF4B00D7E8E8 /* RecordViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -274,6 +287,15 @@
 				03B1F2C41684A52500C32ED4 /* PostCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		94E345901684C81500D7E8E8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				94E345911684C8A600D7E8E8 /* AudioRecorder.h */,
+				94E345921684C8A600D7E8E8 /* AudioRecorder.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +390,8 @@
 				03B43A991684A3AE00C58667 /* SBJsonWriter.m in Sources */,
 				03B1F2C61684A56800C32ED4 /* PostCell.m in Sources */,
 				03B1F2CA1684A60100C32ED4 /* Post.m in Sources */,
+				94E3458B1684BF4B00D7E8E8 /* RecordViewController.m in Sources */,
+				94E345931684C8A600D7E8E8 /* AudioRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +434,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -430,6 +455,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
