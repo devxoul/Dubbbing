@@ -17,4 +17,6 @@
 
 -(void) mixVideoURL:(NSURL*)videoURL audioInfoList:(NSMutableArray*)audioInfoList;
 
+-(void)exportAudioFile;
+
 @end

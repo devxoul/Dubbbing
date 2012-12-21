@@ -50,4 +50,80 @@
     }
 }
 
+
+//Export function to export the combined audios as one.
+-(void)exportAudioFile
+{
+    AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:self.composition
+                                                                           presetName:AVAssetExportPresetPassthrough];
+    NSArray *presets =[AVAssetExportSession exportPresetsCompatibleWithAsset:self.composition];
+    NSLog(@"presets======%@",presets);
+    NSLog (@"can export: %@", exportSession.supportedFileTypes);
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
+    
+    NSString* exportPath = [documentsDirectoryPath stringByAppendingPathComponent:@"CombinedNew.mov"];
+    
+    [[NSFileManager defaultManager] removeItemAtPath:exportPath error:nil];
+    NSURL* exportURL = [NSURL fileURLWithPath:exportPath];
+    
+    exportSession.outputURL = exportURL;
+    exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+    exportSession.shouldOptimizeForNetworkUse = YES;
+    [exportSession exportAsynchronouslyWithCompletionHandler:^{
+        NSLog (@"i is in your block, exportin. status is %d", exportSession.status);
+        switch (exportSession.status)
+        {
+            case AVAssetExportSessionStatusCompleted:
+            {
+                NSLog(@"AVAssetExportSessionStatusCompleted");
+                NSLog(@"Completed export");
+                
+                
+                NSLog(@"exportURL %@", exportURL);
+                
+                // Export URL으로 빠집니다.
+                // 여기서 전달해 주면 될 듯 다음 뷰로.
+                
+                break;
+            }
+
+            case AVAssetExportSessionStatusFailed:
+            {
+                // log error to text view
+                NSError *exportError = exportSession.error;
+                NSLog(@"AVAssetExportSessionStatusFailed: %@", exportError.description);
+                break;
+            }
+            case AVAssetExportSessionStatusUnknown:
+            {
+                NSLog(@"AVAssetExportSessionStatusUnknown");
+                break;
+            }
+            case AVAssetExportSessionStatusExporting:
+            {
+                NSLog(@"AVAssetExportSessionStatusExporting");
+                break;
+            }
+            case AVAssetExportSessionStatusCancelled:
+            {
+                NSLog(@"AVAssetExportSessionStatusCancelled");
+                break;
+            }
+            case AVAssetExportSessionStatusWaiting:
+            {
+                NSLog(@"AVAssetExportSessionStatusWaiting");
+                break;
+            }
+            default:
+            {
+                NSLog(@"didn't get export status");
+                break;
+            }
+                
+        };
+    }];
+    [exportSession release];
+}
+
 @end

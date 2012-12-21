@@ -110,6 +110,9 @@
     [self.view.layer addSublayer:avplayerLayer];
     [_avPlayer play];
     
+    
+    [audioVideoMixer exportAudioFile];
+    
 
     [audioInfoList release];
     [audioVideoMixer release];
