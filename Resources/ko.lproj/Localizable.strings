@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  Dubbbing
+
+  Created by 전수열 on 12. 12. 21..
+  Copyright (c) 2012년 Joyfl. All rights reserved.
+*/
+
+
+// Alert
+"OOPS" = "어맛!";
+"I_GOT_IT" = "알겠어요";
+
+
+// List View
+"SUBMIT" = "등록";
+"RECORD_A_VIDEO" = "동영상 촬영";
+"FROM_LIBRARY" = "라이브러리에서 선택";
+"CANCEL" = "취소";
+"NO_SUPPORT_CAMERA" = "카메라를 지원하지 않는 기기입니다.";
