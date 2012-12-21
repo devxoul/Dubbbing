@@ -24,6 +24,8 @@
 		0337FBE016849FE0007C5E07 /* JLHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0337FBD816849FE0007C5E07 /* JLHTTPRequest.m */; };
 		0337FBE116849FE0007C5E07 /* JLHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0337FBDA16849FE0007C5E07 /* JLHTTPResponse.m */; };
 		0337FBE81684A0C7007C5E07 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0337FBE71684A0C7007C5E07 /* PostViewController.m */; };
+		036DA8971684BC6E0047731D /* DubbingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036DA8961684BC6E0047731D /* DubbingViewController.m */; };
+		036DA89B1684BC950047731D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036DA8991684BC8F0047731D /* MediaPlayer.framework */; };
 		03B1F2C61684A56800C32ED4 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B1F2C41684A52500C32ED4 /* PostCell.m */; };
 		03B1F2CA1684A60100C32ED4 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B1F2C91684A60100C32ED4 /* Post.m */; };
 		03B1F2CD1684A7F900C32ED4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B1F2CB1684A7ED00C32ED4 /* MobileCoreServices.framework */; };
@@ -41,8 +43,10 @@
 		03B43A981684A3AE00C58667 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B43A8B1684A3AE00C58667 /* SBJsonUTF8Stream.m */; };
 		03B43A991684A3AE00C58667 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B43A8D1684A3AE00C58667 /* SBJsonWriter.m */; };
 		03B43A9A1684A41800C58667 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0337FBCB16849FDA007C5E07 /* Utils.m */; };
+		9414C7FB1684E0BA00EF93B5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9414C7FA1684E0BA00EF93B5 /* CoreMedia.framework */; };
+		9414C7FE1684F1BC00EF93B5 /* AudioVideoMixer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9414C7FD1684F1BC00EF93B5 /* AudioVideoMixer.m */; };
+		9414C8011684F2EE00EF93B5 /* AudioInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9414C8001684F2EE00EF93B5 /* AudioInfo.m */; };
 		94E345831684AC4300D7E8E8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E345821684AC4300D7E8E8 /* AVFoundation.framework */; };
-		94E3458B1684BF4B00D7E8E8 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E3458A1684BF4B00D7E8E8 /* RecordViewController.m */; };
 		94E345931684C8A600D7E8E8 /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E345921684C8A600D7E8E8 /* AudioRecorder.m */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +83,9 @@
 		0337FBDA16849FE0007C5E07 /* JLHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLHTTPResponse.m; sourceTree = "<group>"; };
 		0337FBE61684A0C7007C5E07 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = ViewControllers/PostViewController.h; sourceTree = "<group>"; };
 		0337FBE71684A0C7007C5E07 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = ViewControllers/PostViewController.m; sourceTree = "<group>"; };
+		036DA8951684BC6E0047731D /* DubbingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DubbingViewController.h; path = ViewControllers/DubbingViewController.h; sourceTree = "<group>"; };
+		036DA8961684BC6E0047731D /* DubbingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DubbingViewController.m; path = ViewControllers/DubbingViewController.m; sourceTree = "<group>"; };
+		036DA8991684BC8F0047731D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		03B1F2C31684A52500C32ED4 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		03B1F2C41684A52500C32ED4 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		03B1F2C81684A60100C32ED4 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
@@ -112,9 +119,12 @@
 		03B43A8B1684A3AE00C58667 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		03B43A8C1684A3AE00C58667 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		03B43A8D1684A3AE00C58667 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		9414C7FA1684E0BA00EF93B5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		9414C7FC1684F1BC00EF93B5 /* AudioVideoMixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioVideoMixer.h; sourceTree = "<group>"; };
+		9414C7FD1684F1BC00EF93B5 /* AudioVideoMixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioVideoMixer.m; sourceTree = "<group>"; };
+		9414C7FF1684F2EE00EF93B5 /* AudioInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioInfo.h; path = Utilities/AudioInfo.h; sourceTree = "<group>"; };
+		9414C8001684F2EE00EF93B5 /* AudioInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioInfo.m; path = Utilities/AudioInfo.m; sourceTree = "<group>"; };
 		94E345821684AC4300D7E8E8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		94E345891684BF4B00D7E8E8 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = ViewControllers/RecordViewController.h; sourceTree = "<group>"; };
-		94E3458A1684BF4B00D7E8E8 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = ViewControllers/RecordViewController.m; sourceTree = "<group>"; };
 		94E345911684C8A600D7E8E8 /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = Utilities/AudioRecorder.h; sourceTree = "<group>"; };
 		94E345921684C8A600D7E8E8 /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = Utilities/AudioRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +134,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9414C7FB1684E0BA00EF93B5 /* CoreMedia.framework in Frameworks */,
 				94E345831684AC4300D7E8E8 /* AVFoundation.framework in Frameworks */,
+				036DA89B1684BC950047731D /* MediaPlayer.framework in Frameworks */,
 				03B1F2CD1684A7F900C32ED4 /* MobileCoreServices.framework in Frameworks */,
 				0337FBAA16849F33007C5E07 /* UIKit.framework in Frameworks */,
 				0337FBAC16849F33007C5E07 /* Foundation.framework in Frameworks */,
@@ -156,7 +168,9 @@
 		0337FBA816849F33007C5E07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9414C7FA1684E0BA00EF93B5 /* CoreMedia.framework */,
 				94E345821684AC4300D7E8E8 /* AVFoundation.framework */,
+				036DA8991684BC8F0047731D /* MediaPlayer.framework */,
 				03B1F2CB1684A7ED00C32ED4 /* MobileCoreServices.framework */,
 				0337FBA916849F33007C5E07 /* UIKit.framework */,
 				0337FBAB16849F33007C5E07 /* Foundation.framework */,
@@ -203,8 +217,8 @@
 				0337FBC716849F80007C5E07 /* ListViewController.m */,
 				0337FBE61684A0C7007C5E07 /* PostViewController.h */,
 				0337FBE71684A0C7007C5E07 /* PostViewController.m */,
-				94E345891684BF4B00D7E8E8 /* RecordViewController.h */,
-				94E3458A1684BF4B00D7E8E8 /* RecordViewController.m */,
+				036DA8951684BC6E0047731D /* DubbingViewController.h */,
+				036DA8961684BC6E0047731D /* DubbingViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -294,6 +308,10 @@
 			children = (
 				94E345911684C8A600D7E8E8 /* AudioRecorder.h */,
 				94E345921684C8A600D7E8E8 /* AudioRecorder.m */,
+				9414C7FC1684F1BC00EF93B5 /* AudioVideoMixer.h */,
+				9414C7FD1684F1BC00EF93B5 /* AudioVideoMixer.m */,
+				9414C7FF1684F2EE00EF93B5 /* AudioInfo.h */,
+				9414C8001684F2EE00EF93B5 /* AudioInfo.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -390,8 +408,10 @@
 				03B43A991684A3AE00C58667 /* SBJsonWriter.m in Sources */,
 				03B1F2C61684A56800C32ED4 /* PostCell.m in Sources */,
 				03B1F2CA1684A60100C32ED4 /* Post.m in Sources */,
-				94E3458B1684BF4B00D7E8E8 /* RecordViewController.m in Sources */,
 				94E345931684C8A600D7E8E8 /* AudioRecorder.m in Sources */,
+				036DA8971684BC6E0047731D /* DubbingViewController.m in Sources */,
+				9414C7FE1684F1BC00EF93B5 /* AudioVideoMixer.m in Sources */,
+				9414C8011684F2EE00EF93B5 /* AudioInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

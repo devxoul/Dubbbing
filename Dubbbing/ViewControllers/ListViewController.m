@@ -36,7 +36,8 @@
 
 - (void)postButtonHandler
 {
-	[self presentActionSheet];
+//	[self presentActionSheet];
+	[self presentPostViewControllerWithURL:nil];
 }
 
 
@@ -91,22 +92,15 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	NSLog( @"From library : %@", info );
-	NSString *moviePath = [info objectForKey:UIImagePickerControllerMediaURL];
-	
-	// 카메라로 찍은 경우 앨범에 저장
-//	if( picker.sourceType == UIImagePickerControllerSourceTypeCamera )
-//		UIImageWriteToSavedPhotosAlbum( image, nil, nil, nil );
-	
-	
-	[self performSelector:@selector(presentPostViewController) withObject:nil afterDelay:0.5];
+	NSLog( @"info : %@", info );
+	[self performSelector:@selector(presentPostViewControllerWithURL:) withObject:[info objectForKey:UIImagePickerControllerMediaURL] afterDelay:0.5];
 }
 
-- (void)presentPostViewController
+- (void)presentPostViewControllerWithURL:(NSString *)url
 {
 	[self dismissViewControllerAnimated:NO completion:nil];
 	
-	UINavigationController *postViewController = [[UINavigationController alloc] initWithRootViewController:[[[PostViewController alloc] init] autorelease]];
+	UINavigationController *postViewController = [[UINavigationController alloc] initWithRootViewController:[[[PostViewController alloc] initWithURL:url] autorelease]];
 	[self presentViewController:postViewController animated:NO completion:nil];
 	[postViewController release];
 }
