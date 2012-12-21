@@ -24,3 +24,8 @@
 "CANCEL" = "취소";
 "TITLE" = "제목";
 "DESCRIPTION" = "설명";
+
+
+// Dubbing View
+"DONE" = "완료";
+"PREVIEW" = "미리보기";

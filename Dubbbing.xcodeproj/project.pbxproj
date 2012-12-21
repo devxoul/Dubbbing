@@ -13,7 +13,6 @@
 		0337FBBC16849F33007C5E07 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0337FBBB16849F33007C5E07 /* Default.png */; };
 		0337FBBE16849F33007C5E07 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0337FBBD16849F33007C5E07 /* Default@2x.png */; };
 		0337FBC016849F33007C5E07 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0337FBBF16849F33007C5E07 /* Default-568h@2x.png */; };
-		036DA89B1684BC950047731D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036DA8991684BC8F0047731D /* MediaPlayer.framework */; };
 		036DA8A61684FAEE0047731D /* navigation_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 036DA8A41684FAEE0047731D /* navigation_bar.png */; };
 		036DA8A71684FAEE0047731D /* navigation_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 036DA8A51684FAEE0047731D /* navigation_bar@2x.png */; };
 		036DA8AE1684FC4B0047731D /* navigation_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 036DA8AC1684FC4B0047731D /* navigation_button.png */; };
@@ -104,7 +103,6 @@
 		0337FBE71684A0C7007C5E07 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = ViewControllers/PostViewController.m; sourceTree = "<group>"; };
 		036DA8951684BC6E0047731D /* DubbingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DubbingViewController.h; path = ViewControllers/DubbingViewController.h; sourceTree = "<group>"; };
 		036DA8961684BC6E0047731D /* DubbingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DubbingViewController.m; path = ViewControllers/DubbingViewController.m; sourceTree = "<group>"; };
-		036DA8991684BC8F0047731D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		036DA89D1684FACA0047731D /* DubbbingBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DubbbingBarButtonItem.h; sourceTree = "<group>"; };
 		036DA89E1684FACA0047731D /* DubbbingBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DubbbingBarButtonItem.m; sourceTree = "<group>"; };
 		036DA89F1684FACA0047731D /* DubbbingNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DubbbingNavigationController.h; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 			files = (
 				9414C7FB1684E0BA00EF93B5 /* CoreMedia.framework in Frameworks */,
 				94E345831684AC4300D7E8E8 /* AVFoundation.framework in Frameworks */,
-				036DA89B1684BC950047731D /* MediaPlayer.framework in Frameworks */,
 				03B1F2CD1684A7F900C32ED4 /* MobileCoreServices.framework in Frameworks */,
 				0337FBAA16849F33007C5E07 /* UIKit.framework in Frameworks */,
 				0337FBAC16849F33007C5E07 /* Foundation.framework in Frameworks */,
@@ -214,7 +211,6 @@
 			children = (
 				9414C7FA1684E0BA00EF93B5 /* CoreMedia.framework */,
 				94E345821684AC4300D7E8E8 /* AVFoundation.framework */,
-				036DA8991684BC8F0047731D /* MediaPlayer.framework */,
 				03B1F2CB1684A7ED00C32ED4 /* MobileCoreServices.framework */,
 				0337FBA916849F33007C5E07 /* UIKit.framework */,
 				0337FBAB16849F33007C5E07 /* Foundation.framework */,

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import <CoreMedia/CoreMedia.h>
 #import "AudioRecorder.h"
 
@@ -15,7 +14,6 @@
 {
 	NSURL *_url;
 	
-	MPMoviePlayerController *_player;
 	UIButton *_recordButton;
     UIButton *_mixButton;
     
@@ -24,8 +22,6 @@
     // Player
     AVPlayer* _avPlayer;
     BOOL    _isRecording;
-
-    
 }
 
 - (id)initWithURL:(NSURL *)url;

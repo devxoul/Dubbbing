@@ -7,6 +7,7 @@
 //
 
 #import "DubbingViewController.h"
+#import "DubbbingBarButtonItem.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "AudioVideoMixer.h"
 
@@ -20,12 +21,21 @@
 	[[UIApplication sharedApplication] setStatusBarHidden:YES];
 	[[UIDevice currentDevice] setOrientation:UIInterfaceOrientationLandscapeRight];
 	
+	DubbbingBarButtonItem *cancelButton = [[DubbbingBarButtonItem alloc] initWithType:DubbbingBarButtonItemTypeNormal title:NSLocalizedString( @"CANCEL", @"취소" ) target:self action:@selector(cancelButtonHandler)];
+	self.navigationItem.leftBarButtonItem = cancelButton;
+	[cancelButton release];
+	
+	self.navigationItem.title = NSLocalizedString( @"POSTING", @"포스팅" );
+	
+	DubbbingBarButtonItem *previewButtonHandler = [[DubbbingBarButtonItem alloc] initWithType:DubbbingBarButtonItemTypeNormal title:NSLocalizedString( @"PREVIEW", @"미리보기" ) target:self action:@selector(previewButtonHandler)];
+	self.navigationItem.rightBarButtonItem = previewButtonHandler;
+	
     _isRecording = NO;
     _url = [url retain];
     
     _avPlayer = [AVPlayer playerWithURL:url];
     AVPlayerLayer* avplayerLayer = [AVPlayerLayer playerLayerWithPlayer:_avPlayer];
-    [avplayerLayer setFrame:CGRectMake(0,0,400,225)];
+    [avplayerLayer setFrame:CGRectMake(0,44,400,225)];
     avplayerLayer.backgroundColor = [UIColor whiteColor].CGColor;
     [self.view.layer addSublayer:avplayerLayer];
     [_avPlayer play];
@@ -33,22 +43,38 @@
 	
 
 	_recordButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	_recordButton.frame = CGRectMake( 410, 130, 60, 60 );
+	_recordButton.frame = CGRectMake( 410, 120, 60, 60 );
 	[_recordButton addTarget:self action:@selector(recordButtonDidTouhDown) forControlEvents:UIControlEventTouchDown];
 	[_recordButton addTarget:self action:@selector(recordButtonDidTouhUp) forControlEvents:UIControlEventTouchUpInside];
 	[_recordButton addTarget:self action:@selector(recordButtonDidTouhUp) forControlEvents:UIControlEventTouchUpOutside];
 	[self.view addSubview:_recordButton];
     
-    _mixButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	_mixButton.frame = CGRectMake( 410, 10, 60, 60 );
-    [_mixButton setTitle:@"mix" forState:UIControlStateNormal];
-	[_mixButton addTarget:self action:@selector(mixButtonDidTouhUp) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:_mixButton];
-
-    
     _audioRecorder = [[AudioRecorder alloc] init];
        
 	return self;
+}
+
+
+#pragma mark -
+#pragma mark Navigation Item Handlers
+
+- (void)cancelButtonHandler
+{
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)previewButtonHandler
+{
+	[self mixVideoAndAudio];
+	
+	DubbbingBarButtonItem *postButton = [[DubbbingBarButtonItem alloc] initWithType:DubbbingBarButtonItemTypeNormal title:NSLocalizedString( @"DONE", @"완료" ) target:self action:@selector(postButtonHandler)];
+	self.navigationItem.rightBarButtonItem = postButton;
+	[postButton release];
+}
+
+- (void)doneButtonHandler
+{
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -77,13 +103,6 @@
     }
 }
 
-
-- (void)mixButtonDidTouhUp
-{
-    [self mixVideoAndAudio];
-}
-
-
 - (void)mixVideoAndAudio
 {    
     // Create a player for our composition of audio tracks. We observe the status so
@@ -103,7 +122,7 @@
     
     _avPlayer = [AVPlayer playerWithPlayerItem:playerItem];
     AVPlayerLayer* avplayerLayer = [AVPlayerLayer playerLayerWithPlayer:_avPlayer];
-    [avplayerLayer setFrame:CGRectMake(0,0,270,180)];
+    [avplayerLayer setFrame:CGRectMake(0,44,400,225)];
     
     avplayerLayer.backgroundColor = [UIColor orangeColor].CGColor;
     

@@ -11,6 +11,7 @@
 #import <QuartzCore/CALayer.h>
 #import "DubbingViewController.h"
 #import "DubbbingBarButtonItem.h"
+#import "DubbbingNavigationController.h"
 
 @implementation PostViewController
 
@@ -27,6 +28,9 @@ enum {
 - (id)initWithURL:(NSURL *)url
 {
 	self = [super init];
+	
+	[[UIApplication sharedApplication] setStatusBarHidden:NO];
+	[[UIDevice currentDevice] setOrientation:UIInterfaceOrientationPortrait];
 	
 	_url = [url retain];
 	
@@ -92,7 +96,7 @@ enum {
 	if( section == kSectionMovie )
 		return 1;
 	
-	return 2;
+	return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,18 +107,13 @@ enum {
 	if( indexPath.row == kRowTitle )
 		return 44;
 	
-	if( indexPath.row == kRowDescription )
-		return 132;
-	
 	return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *movieCellId = @"movieCellId";
-	
 	static NSString *titleCellId = @"titleCellId";
-	static NSString *descriptionCellId = @"descriptionCellId";
 	
 	UITableViewCell *cell = nil;
 	
@@ -146,6 +145,7 @@ enum {
 			if( !cell )
 			{
 				cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:movieCellId];
+				cell.selectionStyle = UITableViewCellSelectionStyleNone;
 				
 				_titleInput = [[UITextField alloc] initWithFrame:CGRectMake( 10, 11, 300, 22 )];
 				_titleInput.delegate = self;
@@ -155,24 +155,6 @@ enum {
 				[cell.contentView addSubview:_titleInput];
 			}
 		}
-		
-		else if( indexPath.row == kRowDescription )
-		{
-			cell = [tableView dequeueReusableCellWithIdentifier:titleCellId];
-			if( !cell )
-			{
-				cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:descriptionCellId];
-				
-				_descriptionInput = [[UITextField alloc] initWithFrame:CGRectMake( 10, 11, 300, 121 )];
-				_descriptionInput.delegate = self;
-				_descriptionInput.placeholder = NSLocalizedString( @"DESCRIPTION", @"설명" );
-				_descriptionInput.returnKeyType = UIReturnKeyDone;
-				[_descriptionInput addTarget:self action:@selector(inputEditingDidBegin) forControlEvents:UIControlEventEditingDidBegin];
-				[cell.contentView addSubview:_descriptionInput];
-			}
-		}
-		
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
 	
 	return cell;
@@ -184,9 +166,7 @@ enum {
 
 - (void)movieButtonDidTouchUpInside
 {
-	DubbingViewController *moviePlayerViewController = [[DubbingViewController alloc] initWithURL:_url];
-	[self presentViewController:moviePlayerViewController animated:YES completion:nil];
-	[moviePlayerViewController release];
+	[self presentViewController:[[[DubbbingNavigationController alloc] initWithRootViewController:[[[DubbingViewController alloc] initWithURL:_url] autorelease]] autorelease] animated:YES completion:nil];
 }
 
 

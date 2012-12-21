@@ -16,6 +16,7 @@
 	self = [super initWithRootViewController:rootViewController];
 	
 	[self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_bar.png"] forBarMetrics:UIBarMetricsDefault];
+	[self.navigationBar setBackgroundImage:[[UIImage imageNamed:@"navigation_bar.png"] resizableImageWithCapInsets:UIEdgeInsetsMake( 0, 5, 0, 5 )] forBarMetrics:UIBarMetricsLandscapePhone];
 	
 	return self;
 }
