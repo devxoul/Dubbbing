@@ -19,6 +19,7 @@
 
 
 // Post View
+"POSTING" = "포스팅";
 "UPLOAD" = "등록";
 "CANCEL" = "취소";
 "TITLE" = "제목";

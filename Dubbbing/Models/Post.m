@@ -7,9 +7,19 @@
 //
 
 #import "Post.h"
+#import "Const.h"
 
 @implementation Post
 
-@synthesize thumbnailURL, videoURL, description, thumbnail;
+@synthesize thumbnail, title, thumbnailURL, videoURL;
+
++ (Post *)postFromDictionary:(NSDictionary *)dictionary
+{
+	Post *post = [[Post alloc] init];
+	post.videoURL = [NSString stringWithFormat:@"%@%@", URL_MEDIA_ROOT, [dictionary objectForKey:@"video_url"]];
+	post.thumbnailURL = [NSString stringWithFormat:@"%@%@", URL_MEDIA_ROOT, [dictionary objectForKey:@"thumbnail_url"]];
+	post.title = [dictionary objectForKey:@"title"];
+	return post;
+}
 
 @end
