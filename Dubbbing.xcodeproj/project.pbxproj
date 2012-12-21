@@ -38,7 +38,6 @@
 		94C4B1FC16851F2E00BBE362 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0337FBCB16849FDA007C5E07 /* Utils.m */; };
 		94C4B1FD16851F2E00BBE362 /* DubbbingBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 036DA89E1684FACA0047731D /* DubbbingBarButtonItem.m */; };
 		94C4B1FE16851F2E00BBE362 /* DubbbingNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036DA8A01684FACA0047731D /* DubbbingNavigationController.m */; };
-		94C4B1FF16851F2E00BBE362 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 942239CF16851DAC005CEE3F /* RecordViewController.m */; };
 		94C4B20016851F2E00BBE362 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0337FBC716849F80007C5E07 /* ListViewController.m */; };
 		94C4B20116851F2E00BBE362 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0337FBE71684A0C7007C5E07 /* PostViewController.m */; };
 		94C4B20216851F2E00BBE362 /* DubbingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036DA8961684BC6E0047731D /* DubbingViewController.m */; };
@@ -160,8 +159,6 @@
 		9414C7FD1684F1BC00EF93B5 /* AudioVideoMixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioVideoMixer.m; sourceTree = "<group>"; };
 		9414C7FF1684F2EE00EF93B5 /* AudioInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioInfo.h; path = Utilities/AudioInfo.h; sourceTree = "<group>"; };
 		9414C8001684F2EE00EF93B5 /* AudioInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioInfo.m; path = Utilities/AudioInfo.m; sourceTree = "<group>"; };
-		942239CE16851DAC005CEE3F /* RecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = ViewControllers/RecordViewController.h; sourceTree = "<group>"; };
-		942239CF16851DAC005CEE3F /* RecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = ViewControllers/RecordViewController.m; sourceTree = "<group>"; };
 		94E345821684AC4300D7E8E8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		94E345911684C8A600D7E8E8 /* AudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorder.h; path = Utilities/AudioRecorder.h; sourceTree = "<group>"; };
 		94E345921684C8A600D7E8E8 /* AudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorder.m; path = Utilities/AudioRecorder.m; sourceTree = "<group>"; };
@@ -253,8 +250,6 @@
 		0337FBC916849F8C007C5E07 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				942239CE16851DAC005CEE3F /* RecordViewController.h */,
-				942239CF16851DAC005CEE3F /* RecordViewController.m */,
 				0337FBC616849F80007C5E07 /* ListViewController.h */,
 				0337FBC716849F80007C5E07 /* ListViewController.m */,
 				0337FBE61684A0C7007C5E07 /* PostViewController.h */,
@@ -501,7 +496,6 @@
 				94C4B1FC16851F2E00BBE362 /* Utils.m in Sources */,
 				94C4B1FD16851F2E00BBE362 /* DubbbingBarButtonItem.m in Sources */,
 				94C4B1FE16851F2E00BBE362 /* DubbbingNavigationController.m in Sources */,
-				94C4B1FF16851F2E00BBE362 /* RecordViewController.m in Sources */,
 				94C4B20016851F2E00BBE362 /* ListViewController.m in Sources */,
 				94C4B20116851F2E00BBE362 /* PostViewController.m in Sources */,
 				94C4B20216851F2E00BBE362 /* DubbingViewController.m in Sources */,

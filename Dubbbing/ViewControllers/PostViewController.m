@@ -10,7 +10,6 @@
 #import "Utils.h"
 #import <QuartzCore/CALayer.h>
 #import "DubbingViewController.h"
-#import "RecordViewController.h"
 #import "DubbbingBarButtonItem.h"
 
 @implementation PostViewController
