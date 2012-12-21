@@ -10,11 +10,15 @@
 
 @interface PostViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
+	NSURL *_url;
+	
 	UITableView *_tableView;
 	
 	UIButton *_movieButton;
 	UITextField *_titleInput;
 	UITextField *_descriptionInput;
 }
+
+- (id)initWithURL:(NSString *)url;
 
 @end

@@ -9,6 +9,7 @@
 #import "PostViewController.h"
 #import "Utils.h"
 #import <QuartzCore/CALayer.h>
+#import "MoviePlayerViewController.h"
 
 @implementation PostViewController
 
@@ -22,9 +23,11 @@ enum {
 	kRowDescription = 1,
 };
 
-- (id)init
+- (id)initWithURL:(NSURL *)url
 {
 	self = [super init];
+	
+	_url = [url retain];
 	
 	UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString( @"CANCEL", @"취소" ) style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonHandler)];
 	self.navigationItem.leftBarButtonItem = cancelButton;
@@ -127,6 +130,7 @@ enum {
 			_movieButton.backgroundColor = [UIColor blackColor];
 			_movieButton.layer.cornerRadius = 5;
 			_movieButton.clipsToBounds = YES;
+			[_movieButton addTarget:self action:@selector(movieButtonDidTouchUpInside) forControlEvents:UIControlEventTouchUpInside];
 			[cell.contentView addSubview:_movieButton];
 		}
 	}
@@ -169,6 +173,17 @@ enum {
 	}
 	
 	return cell;
+}
+
+
+#pragma mark -
+#pragma mark UIButton Selectors
+
+- (void)movieButtonDidTouchUpInside
+{
+	MoviePlayerViewController *moviePlayerViewController = [[MoviePlayerViewController alloc] initWithURL:_url];
+	[self presentViewController:moviePlayerViewController animated:YES completion:nil];
+	[moviePlayerViewController release];
 }
 
 
