@@ -9,7 +9,7 @@
 #import "AudioVideoMixer.h"
 
 @implementation AudioVideoMixer
-@synthesize composition;
+@synthesize delegate, composition;
 
 -(void) mixVideoURL:(NSURL*)videoURL audioInfoList:(NSMutableArray*)audioInfoList
 {
@@ -81,9 +81,7 @@
                 
                 
                 NSLog(@"exportURL %@", exportURL);
-                
-                // Export URL으로 빠집니다.
-                // 여기서 전달해 주면 될 듯 다음 뷰로.
+                [delegate mixerDidFinishMixingWithURL:exportURL];
                 
                 break;
             }

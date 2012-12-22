@@ -10,8 +10,19 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioInfo.h"
 
-@interface AudioVideoMixer : NSObject
+@protocol AudioVideoMixerDelegate
 
+- (void)mixerDidFinishMixingWithURL:(NSURL *)url;
+
+@end
+
+
+@interface AudioVideoMixer : NSObject
+{
+	id<AudioVideoMixerDelegate> delegate;
+}
+
+@property (nonatomic, retain) id<AudioVideoMixerDelegate> delegate;
 @property (nonatomic, strong) AVMutableComposition* composition;
 
 

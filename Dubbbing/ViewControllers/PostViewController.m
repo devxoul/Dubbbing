@@ -12,6 +12,8 @@
 #import "DubbingViewController.h"
 #import "DubbbingBarButtonItem.h"
 #import "DubbbingNavigationController.h"
+#import "DejalActivityView.h"
+#import "Const.h"
 
 @implementation PostViewController
 
@@ -28,9 +30,6 @@ enum {
 - (id)initWithURL:(NSURL *)url
 {
 	self = [super init];
-	
-	[[UIApplication sharedApplication] setStatusBarHidden:NO];
-	[[UIDevice currentDevice] setOrientation:UIInterfaceOrientationPortrait];
 	
 	_url = [url retain];
 	
@@ -54,7 +53,17 @@ enum {
 	[self.view addGestureRecognizer:tapRecognizer];
 	[tapRecognizer release];
 	
+	_loader = [[JLHTTPLoader alloc] init];
+	_loader.delegate = self;
+	
+	
+	
 	return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	
 }
 
 - (void)tableViewDidTap
@@ -79,7 +88,17 @@ enum {
 
 - (void)postButtonHandler
 {
+	[DejalBezelActivityView activityViewForView:self.view];
 	
+	JLHTTPMultipartRequest *req = [[JLHTTPMultipartRequest alloc] init];
+	req.url = URL_API_DUB;
+	req.method = @"POST";
+	[req setParam:@"45c2c93dae3e7e9bd60a3bf6cf33f7a7bab9b671" forKey:@"access_token"];
+	[req setParam:_titleInput.text forKey:@"title"];
+	[req setParam:@"Description" forKey:@"description"];
+	[req setParam:_mixedMovieURL forKey:@"video"];
+	[_loader addRequest:req];
+	[_loader startLoading];
 }
 
 
@@ -166,7 +185,19 @@ enum {
 
 - (void)movieButtonDidTouchUpInside
 {
-	[self presentViewController:[[[DubbbingNavigationController alloc] initWithRootViewController:[[[DubbingViewController alloc] initWithURL:_url] autorelease]] autorelease] animated:YES completion:nil];
+	DubbingViewController *dubbingViewController = [[DubbingViewController alloc] initWithURL:_url];
+	dubbingViewController.delegate = self;
+	[self presentViewController:[[[DubbbingNavigationController alloc] initWithRootViewController:dubbingViewController] autorelease] animated:YES completion:nil];
+	[dubbingViewController release];
+}
+
+
+#pragma mark -
+#pragma mark DubbingViewControllerDelegate
+
+- (void)dubbingDidFinishWithURL:(NSURL *)url
+{
+	_mixedMovieURL = [url retain];
 }
 
 
@@ -191,6 +222,16 @@ enum {
 		[self tableViewDidTap];
 	
 	return NO;
+}
+
+
+#pragma mark -
+#pragma mark JLHTTPLoaderDelegate
+
+- (void)loaderDidFinishLoading:(JLHTTPResponse *)response
+{
+	NSLog( @"Code : %d", response.statusCode );
+	NSLog( @"Body : %@", response.body );
 }
 
 @end

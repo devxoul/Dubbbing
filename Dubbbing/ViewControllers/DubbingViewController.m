@@ -9,9 +9,11 @@
 #import "DubbingViewController.h"
 #import "DubbbingBarButtonItem.h"
 #import <MediaPlayer/MediaPlayer.h>
-#import "AudioVideoMixer.h"
+#import "DejalActivityView.h"
 
 @implementation DubbingViewController
+
+@synthesize delegate;
 
 - (id)initWithURL:(NSURL *)url
 {
@@ -29,6 +31,10 @@
 	
 	DubbbingBarButtonItem *previewButtonHandler = [[DubbbingBarButtonItem alloc] initWithType:DubbbingBarButtonItemTypeNormal title:NSLocalizedString( @"PREVIEW", @"미리보기" ) target:self action:@selector(previewButtonHandler)];
 	self.navigationItem.rightBarButtonItem = previewButtonHandler;
+	
+//	DubbbingBarButtonItem *doneButton = [[DubbbingBarButtonItem alloc] initWithType:DubbbingBarButtonItemTypeNormal title:NSLocalizedString( @"DONE", @"완료" ) target:self action:@selector(doneButtonHandler)];
+//	self.navigationItem.rightBarButtonItem = doneButton;
+//	[doneButton release];
 	
     _isRecording = NO;
     _url = [url retain];
@@ -67,13 +73,15 @@
 {
 	[self mixVideoAndAudio];
 	
-	DubbbingBarButtonItem *postButton = [[DubbbingBarButtonItem alloc] initWithType:DubbbingBarButtonItemTypeNormal title:NSLocalizedString( @"DONE", @"완료" ) target:self action:@selector(postButtonHandler)];
-	self.navigationItem.rightBarButtonItem = postButton;
-	[postButton release];
+	DubbbingBarButtonItem *doneButton = [[DubbbingBarButtonItem alloc] initWithType:DubbbingBarButtonItemTypeNormal title:NSLocalizedString( @"DONE", @"완료" ) target:self action:@selector(doneButtonHandler)];
+	self.navigationItem.rightBarButtonItem = doneButton;
+	[doneButton release];
 }
 
 - (void)doneButtonHandler
 {
+	[delegate dubbingDidFinishWithURL:_exportURL];
+	[DejalBezelActivityView activityViewForView:self.view];
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -111,10 +119,11 @@
     NSMutableArray* audioInfoList = _audioRecorder.audioInfoList;
     
     
-    AudioVideoMixer* audioVideoMixer = [[AudioVideoMixer alloc] init];
-    [audioVideoMixer mixVideoURL:_url audioInfoList:audioInfoList];
+    _audioVideoMixer = [[AudioVideoMixer alloc] init];
+	_audioVideoMixer.delegate = self;
+    [_audioVideoMixer mixVideoURL:_url audioInfoList:[audioInfoList retain]];
     
-    AVPlayerItem* playerItem = [[AVPlayerItem alloc] initWithAsset:[audioVideoMixer.composition copy]];
+    AVPlayerItem* playerItem = [[AVPlayerItem alloc] initWithAsset:[_audioVideoMixer.composition copy]];
     [playerItem addObserver:self
                  forKeyPath:@"status"
                     options:0
@@ -129,12 +138,8 @@
     [self.view.layer addSublayer:avplayerLayer];
     [_avPlayer play];
     
-    
-    [audioVideoMixer exportAudioFile];
-    
-
-    [audioInfoList release];
-    [audioVideoMixer release];
+	[_audioVideoMixer exportAudioFile];
+//    [audioInfoList release];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -154,5 +159,22 @@
         }
     }
 }
+
+
+#pragma mark -
+#pragma mark AudioVideoMixerDelegate
+
+- (void)mixerDidFinishMixingWithURL:(NSURL *)url
+{
+	_exportURL = url;
+	
+	[[UIApplication sharedApplication] setStatusBarHidden:NO];
+	[[UIDevice currentDevice] setOrientation:UIInterfaceOrientationPortrait];
+	
+	[DejalBezelActivityView removeView];
+	[delegate dubbingDidFinishWithURL:url];
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

@@ -15,6 +15,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "Post.h"
 #import "Const.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @implementation ListViewController
 
@@ -156,6 +157,14 @@
 	cell.post = [_posts objectAtIndex:indexPath.row];
 	
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	Post *post = [_posts objectAtIndex:indexPath.row];
+	NSLog( @"%@", post.videoURL );
+	MPMoviePlayerViewController *controller = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL URLWithString:post.videoURL]];
+	[self presentMoviePlayerViewControllerAnimated:controller];
 }
 
 

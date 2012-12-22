@@ -7,16 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DubbingViewController.h"
+#import "JLHTTPLoader.h"
 
-@interface PostViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface PostViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, DubbingViewControllerDelegate, JLHTTPLoaderDelegate>
 {
 	NSURL *_url;
+	NSURL *_mixedMovieURL;
 	
 	UITableView *_tableView;
 	
 	UIButton *_movieButton;
 	UITextField *_titleInput;
 	UITextField *_descriptionInput;
+	
+	JLHTTPLoader *_loader;
 }
 
 - (id)initWithURL:(NSString *)url;

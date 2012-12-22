@@ -8,6 +8,7 @@
 
 #define URL_API_ROOT @"http://dev.joyfl.net:8008/api/"
 #define URL_API_DUBS [NSString stringWithFormat:@"%@/dubs", URL_API_ROOT]
+#define URL_API_DUB [NSString stringWithFormat:@"%@/dub", URL_API_ROOT]
 
 #define URL_MEDIA_ROOT @"http://dev.joyfl.net/dub/"
 
